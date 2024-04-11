@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Empréstimos</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Exemplar</th>
+            <th>Data do Empréstimo</th>
+            <th>Data Prevista de Devolução</th>
+            <th>Data Real de Devolução</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emprestimo in emprestimos %}
+        <tr>
+            <td>{{ emprestimo.id }}</td>
+            <td>{{ emprestimo.usuario.nome }}</td>
+            <td>{{ emprestimo.exemplar.id }}</td>
+            <td>{{ emprestimo.data_emprestimo }}</td>
+            <td>{{ emprestimo.data_devolucao_prevista }}</td>
+            <td>{{ emprestimo.data_devolucao_real }}</td>
+            <td>{{ emprestimo.status }}</td>
+            <td>
+                <a href="{% url 'detalhes_emprestimo' emprestimo.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'editar_emprestimo' emprestimo.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'deletar_emprestimo' emprestimo.id %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'novo_emprestimo' %}" class="btn btn-success">Novo Empréstimo</a>
+{% endblock %}

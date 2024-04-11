@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Avaliações</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Livro</th>
+            <th>Usuário</th>
+            <th>Avaliação</th>
+            <th>Data da Avaliação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for avaliacao in avaliacoes %}
+        <tr>
+            <td>{{ avaliacao.id }}</td>
+            <td>{{ avaliacao.livro.titulo }}</td>
+            <td>{{ avaliacao.usuario.nome }}</td>
+            <td>{{ avaliacao.avaliacao }}</td>
+            <td>{{ avaliacao.data_avaliacao }}</td>
+            <td>
+                <a href="{% url 'detalhes_avaliacao' avaliacao.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'editar_avaliacao' avaliacao.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'deletar_avaliacao' avaliacao.id %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'nova_avaliacao' %}" class="btn btn-success">Nova Avaliação</a>
+{% endblock %}

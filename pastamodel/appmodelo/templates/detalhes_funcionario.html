@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detalhes do Funcionário</h2>
+<p><strong>ID:</strong> {{ funcionario.id }}</p>
+<p><strong>Nome:</strong> {{ funcionario.nome }}</p>
+<p><strong>Sobrenome:</strong> {{ funcionario.sobrenome }}</p>
+<p><strong>Cargo:</strong> {{ funcionario.cargo }}</p>
+<p><strong>Data de Contratação:</strong> {{ funcionario.data_contratacao }}</p>
+<a href="{% url 'editar_funcionario' funcionario.id %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'lista_funcionarios' %}" class="btn btn-secondary">Voltar para Lista</a>
+{% endblock %}

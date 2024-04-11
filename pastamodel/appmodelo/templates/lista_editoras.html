@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Editoras</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for editora in editoras %}
+        <tr>
+            <td>{{ editora.id }}</td>
+            <td>{{ editora.nome }}</td>
+            <td>
+                <a href="{% url 'detalhes_editora' editora.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'editar_editora' editora.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'deletar_editora' editora.id %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'nova_editora' %}" class="btn btn-success">Nova Editora</a>
+{% endblock %}

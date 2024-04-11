@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detalhes da Multa</h2>
+<p><strong>ID:</strong> {{ multa.id }}</p>
+<p><strong>Empréstimo:</strong> {{ multa.emprestimo.id }}</p>
+<p><strong>Valor:</strong> {{ multa.valor }}</p>
+<p><strong>Data de Pagamento:</strong> {{ multa.data_pagamento }}</p>
+<p><strong>Status:</strong> {{ multa.status }}</p>
+<a href="{% url 'editar_multa' multa.id %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'lista_multas' %}" class="btn btn-secondary">Voltar para Lista</a>
+{% endblock %}

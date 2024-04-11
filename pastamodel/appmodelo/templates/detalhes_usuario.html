@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detalhes do Usuário</h2>
+<p><strong>ID:</strong> {{ usuario.id }}</p>
+<p><strong>Nome:</strong> {{ usuario.nome }}</p>
+<p><strong>Sobrenome:</strong> {{ usuario.sobrenome }}</p>
+<p><strong>Data de Nascimento:</strong> {{ usuario.data_nascimento }}</p>
+<p><strong>Endereço:</strong> {{ usuario.endereco }}</p>
+<p><strong>Email:</strong> {{ usuario.email }}</p>
+<p><strong>Telefone:</strong> {{ usuario.telefone }}</p>
+<a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
+<a href="{% url 'lista_usuarios' %}" class="btn btn-secondary">Voltar para Lista</a>
+{% endblock %}

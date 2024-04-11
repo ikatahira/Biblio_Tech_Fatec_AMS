@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Multas</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Empréstimo</th>
+            <th>Valor</th>
+            <th>Data de Pagamento</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for multa in multas %}
+        <tr>
+            <td>{{ multa.id }}</td>
+            <td>{{ multa.emprestimo.id }}</td>
+            <td>{{ multa.valor }}</td>
+            <td>{{ multa.data_pagamento }}</td>
+            <td>{{ multa.status }}</td>
+            <td>
+                <a href="{% url 'detalhes_multa' multa.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'editar_multa' multa.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'deletar_multa' multa.id %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'nova_multa' %}" class="btn btn-success">Nova Multa</a>
+{% endblock %}

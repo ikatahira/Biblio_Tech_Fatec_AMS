@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Funcionários por Livro</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Funcionário</th>
+            <th>Livro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for func_livro in funcs_livros %}
+        <tr>
+            <td>{{ func_livro.id }}</td>
+            <td>{{ func_livro.funcionario.nome }}</td>
+            <td>{{ func_livro.livro.titulo }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

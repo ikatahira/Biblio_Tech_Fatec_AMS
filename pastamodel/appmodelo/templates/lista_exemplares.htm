@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Exemplares</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número de Série</th>
+            <th>Data de Aquisição</th>
+            <th>Livro</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exemplar in exemplares %}
+        <tr>
+            <td>{{ exemplar.id }}</td>
+            <td>{{ exemplar.numero_serie }}</td>
+            <td>{{ exemplar.data_aquisicao }}</td>
+            <td>{{ exemplar.livro.titulo }}</td>
+            <td>
+                <a href="{% url 'detalhes_exemplar' exemplar.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'editar_exemplar' exemplar.id %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'deletar_exemplar' exemplar.id %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'novo_exemplar' %}" class="btn btn-success">Novo Exemplar</a>
+{% endblock %}
