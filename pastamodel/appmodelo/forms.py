@@ -1,22 +1,72 @@
 from django import forms
-from .models import Cliente, Produto, Pedido
+from .models import Genero, Editora, Autor, Livro, Exemplar, Funcionario, Usuario, Emprestimo, Multa, Comentario, Avaliacao, FuncLivro, Reserva, Log
 
-class ClienteForm(forms.ModelForm):
+class GeneroForm(forms.ModelForm):
     class Meta:
-        model = Cliente
-        fields = ['nome', 'email', 'telefone', 'endereco']
+        model = Genero
+        fields = ['nome']
 
-class ProdutoForm(forms.ModelForm):
+class EditoraForm(forms.ModelForm):
     class Meta:
-        model = Produto
-        fields = ['nome', 'descricao', 'preco']
+        model = Editora
+        fields = ['nome']
 
-class PedidoForm(forms.ModelForm):
+class AutorForm(forms.ModelForm):
     class Meta:
-        model = Pedido
-        fields = ['cliente', 'produtos']
+        model = Autor
+        fields = ['nome']
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Adiciona um widget personalizado para o campo cliente
-        self.fields['cliente'].widget = forms.Select(choices=Cliente.objects.values_list('id', 'nome'))
+class LivroForm(forms.ModelForm):
+    class Meta:
+        model = Livro
+        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor']
+
+class ExemplarForm(forms.ModelForm):
+    class Meta:
+        model = Exemplar
+        fields = ['livro', 'num_serie', 'data_aquisicao']
+
+class FuncionarioForm(forms.ModelForm):
+    class Meta:
+        model = Funcionario
+        fields = ['nome', 'sobrenome', 'cargo', 'data_contratacao']
+
+class UsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nome', 'sobrenome', 'data_nascimento', 'endereco', 'email', 'telefone']
+
+class EmprestimoForm(forms.ModelForm):
+    class Meta:
+        model = Emprestimo
+        fields = ['usuario', 'exemplar', 'data_emprestimo', 'data_devolucao_prevista', 'data_devolucao_real', 'status']
+
+class MultaForm(forms.ModelForm):
+    class Meta:
+        model = Multa
+        fields = ['emprestimo', 'valor', 'data_pagamento', 'status']
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['livro', 'usuario', 'comentario', 'classificacao', 'data_comentario']
+
+class AvaliacaoForm(forms.ModelForm):
+    class Meta:
+        model = Avaliacao
+        fields = ['livro', 'usuario', 'avaliacao', 'data_avaliacao']
+
+class FuncLivroForm(forms.ModelForm):
+    class Meta:
+        model = FuncLivro
+        fields = ['funcionario', 'livro']
+
+class ReservaForm(forms.ModelForm):
+    class Meta:
+        model = Reserva
+        fields = ['usuario', 'livro', 'data_reserva', 'status']
+
+class LogForm(forms.ModelForm):
+    class Meta:
+        model = Log
+        fields = ['usuario', 'data_hora', 'acao_realizada', 'descricao']
