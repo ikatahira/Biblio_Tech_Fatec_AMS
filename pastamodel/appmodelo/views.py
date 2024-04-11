@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genero, Editora, Autor, Livro, Exemplar, Funcionario, Usuario, Emprestimo, Multa, Comentario, Avaliacao, FuncLivro, Reserva, Log
 from .forms import GeneroForm, EditoraForm, AutorForm, LivroForm, ExemplarForm, FuncionarioForm, UsuarioForm, EmprestimoForm, MultaForm, ComentarioForm, AvaliacaoForm, FuncLivroForm, ReservaForm, LogForm
 
+def home(request):
+    return render(request, 'home.html')
 # Views para o modelo Genero
 def lista_generos(request):
     generos = Genero.objects.all()

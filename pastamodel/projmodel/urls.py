@@ -1,7 +1,9 @@
 from django.urls import path
-from . import views
+from appmodelo import views
 
+   
 urlpatterns = [
+    path('', views.home, name='home'),
     # URLs para o modelo Genero
     path('generos/', views.lista_generos, name='lista_generos'),
     path('genero/<int:pk>/', views.detalhes_genero, name='detalhes_genero'),

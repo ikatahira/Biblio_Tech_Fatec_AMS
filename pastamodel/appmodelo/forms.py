@@ -66,7 +66,6 @@ class ReservaForm(forms.ModelForm):
         model = Reserva
         fields = ['usuario', 'livro', 'data_reserva', 'status']
 
-class LogForm(forms.ModelForm):
-    class Meta:
-        model = Log
-        fields = ['usuario', 'data_hora', 'acao_realizada', 'descricao']
+class LogForm(forms.Form):
+    acao_realizada = forms.CharField(label='Ação Realizada', max_length=100)
+    descricao = forms.CharField(label='Descrição', widget=forms.Textarea)
