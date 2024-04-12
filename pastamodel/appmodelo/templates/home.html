@@ -60,6 +60,49 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'lista_editoras' %}">Editoras</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_autores' %}">Autores</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_livros' %}">Livros</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_logs' %}">Logs</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_emprestimos' %}">Empréstimos</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_exemplares' %}">Exemplares</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_multas' %}">Multas</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_funcionarios' %}">Funcionarios</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_reservas' %}">Reservas</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_avaliacoes' %}">Avaliações</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_comentarios' %}">Comentários</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_usuarios' %}">Usuários</a>
+                    </li>
                     <!-- Adicione mais links para outras funcionalidades aqui -->
                 </ul>
             </div>
@@ -71,6 +114,29 @@
             <p class="lead">Encontre os melhores livros em nossa coleção vasta e diversificada.</p>
             <hr class="my-4">
             <p>Explore nossa biblioteca e descubra novos mundos!</p>
+        </div>
+
+        <div class="container">
+            <h2>Livros Disponíveis</h2>
+            <ul>
+                {% for livro in livros %}
+                    <li>{{ livro.titulo }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Autores</h2>
+            <ul>
+                {% for autor in autores %}
+                    <li>{{ autor.nome }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Gêneros</h2>
+            <ul>
+                {% for genero in generos %}
+                    <li>{{ genero.nome }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </main>
 
