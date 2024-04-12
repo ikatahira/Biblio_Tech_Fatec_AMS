@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'appmodelo', 'templates')],
-        'APP_DIRS': True,
+        'APP_DIRS': False,  # Desabilita a busca em diretórios de aplicativos
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

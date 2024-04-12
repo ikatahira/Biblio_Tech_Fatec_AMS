@@ -7,11 +7,11 @@ def home(request):
 # Views para o modelo Genero
 def lista_generos(request):
     generos = Genero.objects.all()
-    return render(request, 'bibliotech/lista_generos.html', {'generos': generos})
+    return render(request, 'lista_generos.html', {'generos': generos})
 
 def detalhes_genero(request, pk):
     genero = get_object_or_404(Genero, pk=pk)
-    return render(request, 'bibliotech/detalhes_genero.html', {'genero': genero})
+    return render(request, 'detalhes_genero.html', {'genero': genero})
 
 def novo_genero(request):
     if request.method == "POST":
@@ -21,7 +21,7 @@ def novo_genero(request):
             return redirect('detalhes_genero', pk=genero.pk)
     else:
         form = GeneroForm()
-    return render(request, 'bibliotech/editar_genero.html', {'form': form})
+    return render(request, 'editar_genero.html', {'form': form})
 
 def editar_genero(request, pk):
     genero = get_object_or_404(Genero, pk=pk)
@@ -32,7 +32,7 @@ def editar_genero(request, pk):
             return redirect('detalhes_genero', pk=genero.pk)
     else:
         form = GeneroForm(instance=genero)
-    return render(request, 'bibliotech/editar_genero.html', {'form': form})
+    return render(request, 'editar_genero.html', {'form': form})
 
 def deletar_genero(request, pk):
     genero = get_object_or_404(Genero, pk=pk)
@@ -43,11 +43,11 @@ def deletar_genero(request, pk):
 # Views para o modelo Editora
 def lista_editoras(request):
     editoras = Editora.objects.all()
-    return render(request, 'bibliotech/lista_editoras.html', {'editoras': editoras})
+    return render(request, 'lista_editoras.html', {'editoras': editoras})
 
 def detalhes_editora(request, pk):
     editora = get_object_or_404(Editora, pk=pk)
-    return render(request, 'bibliotech/detalhes_editora.html', {'editora': editora})
+    return render(request, 'detalhes_editora.html', {'editora': editora})
 
 def nova_editora(request):
     if request.method == "POST":
@@ -57,7 +57,7 @@ def nova_editora(request):
             return redirect('detalhes_editora', pk=editora.pk)
     else:
         form = EditoraForm()
-    return render(request, 'bibliotech/editar_editora.html', {'form': form})
+    return render(request, 'editar_editora.html', {'form': form})
 
 def editar_editora(request, pk):
     editora = get_object_or_404(Editora, pk=pk)
@@ -68,7 +68,7 @@ def editar_editora(request, pk):
             return redirect('detalhes_editora', pk=editora.pk)
     else:
         form = EditoraForm(instance=editora)
-    return render(request, 'bibliotech/editar_editora.html', {'form': form})
+    return render(request, 'editar_editora.html', {'form': form})
 
 def deletar_editora(request, pk):
     editora = get_object_or_404(Editora, pk=pk)
@@ -79,11 +79,11 @@ def deletar_editora(request, pk):
 # Views para o modelo Autor
 def lista_autores(request):
     autores = Autor.objects.all()
-    return render(request, 'bibliotech/lista_autores.html', {'autores': autores})
+    return render(request, 'lista_autores.html', {'autores': autores})
 
 def detalhes_autor(request, pk):
     autor = get_object_or_404(Autor, pk=pk)
-    return render(request, 'bibliotech/detalhes_autor.html', {'autor': autor})
+    return render(request, 'detalhes_autor.html', {'autor': autor})
 
 def novo_autor(request):
     if request.method == "POST":
@@ -93,7 +93,7 @@ def novo_autor(request):
             return redirect('detalhes_autor', pk=autor.pk)
     else:
         form = AutorForm()
-    return render(request, 'bibliotech/editar_autor.html', {'form': form})
+    return render(request, 'editar_autor.html', {'form': form})
 
 def editar_autor(request, pk):
     autor = get_object_or_404(Autor, pk=pk)
@@ -104,7 +104,7 @@ def editar_autor(request, pk):
             return redirect('detalhes_autor', pk=autor.pk)
     else:
         form = AutorForm(instance=autor)
-    return render(request, 'bibliotech/editar_autor.html', {'form': form})
+    return render(request, 'editar_autor.html', {'form': form})
 
 def deletar_autor(request, pk):
     autor = get_object_or_404(Autor, pk=pk)
@@ -115,11 +115,11 @@ def deletar_autor(request, pk):
 # Views para o modelo Livro
 def lista_livros(request):
     livros = Livro.objects.all()
-    return render(request, 'bibliotech/lista_livros.html', {'livros': livros})
+    return render(request, 'lista_livros.html', {'livros': livros})
 
 def detalhes_livro(request, pk):
     livro = get_object_or_404(Livro, pk=pk)
-    return render(request, 'bibliotech/detalhes_livro.html', {'livro': livro})
+    return render(request, 'detalhes_livro.html', {'livro': livro})
 
 def novo_livro(request):
     if request.method == "POST":
@@ -129,7 +129,7 @@ def novo_livro(request):
             return redirect('detalhes_livro', pk=livro.pk)
     else:
         form = LivroForm()
-    return render(request, 'bibliotech/editar_livro.html', {'form': form})
+    return render(request, 'editar_livro.html', {'form': form})
 
 def editar_livro(request, pk):
     livro = get_object_or_404(Livro, pk=pk)
@@ -140,7 +140,7 @@ def editar_livro(request, pk):
             return redirect('detalhes_livro', pk=livro.pk)
     else:
         form = LivroForm(instance=livro)
-    return render(request, 'bibliotech/editar_livro.html', {'form': form})
+    return render(request, 'editar_livro.html', {'form': form})
 
 def deletar_livro(request, pk):
     livro = get_object_or_404(Livro, pk=pk)
@@ -151,11 +151,11 @@ def deletar_livro(request, pk):
 # Views para o modelo Exemplar
 def lista_exemplares(request):
     exemplares = Exemplar.objects.all()
-    return render(request, 'bibliotech/lista_exemplares.html', {'exemplares': exemplares})
+    return render(request, 'lista_exemplares.html', {'exemplares': exemplares})
 
 def detalhes_exemplar(request, pk):
     exemplar = get_object_or_404(Exemplar, pk=pk)
-    return render(request, 'bibliotech/detalhes_exemplar.html', {'exemplar': exemplar})
+    return render(request, 'detalhes_exemplar.html', {'exemplar': exemplar})
 
 def novo_exemplar(request):
     if request.method == "POST":
@@ -165,7 +165,7 @@ def novo_exemplar(request):
             return redirect('detalhes_exemplar', pk=exemplar.pk)
     else:
         form = ExemplarForm()
-    return render(request, 'bibliotech/editar_exemplar.html', {'form': form})
+    return render(request, 'editar_exemplar.html', {'form': form})
 
 def editar_exemplar(request, pk):
     exemplar = get_object_or_404(Exemplar, pk=pk)
@@ -176,7 +176,7 @@ def editar_exemplar(request, pk):
             return redirect('detalhes_exemplar', pk=exemplar.pk)
     else:
         form = ExemplarForm(instance=exemplar)
-    return render(request, 'bibliotech/editar_exemplar.html', {'form': form})
+    return render(request, 'editar_exemplar.html', {'form': form})
 
 def deletar_exemplar(request, pk):
     exemplar = get_object_or_404(Exemplar, pk=pk)
@@ -187,11 +187,11 @@ def deletar_exemplar(request, pk):
 # Views para o modelo Funcionario
 def lista_funcionarios(request):
     funcionarios = Funcionario.objects.all()
-    return render(request, 'bibliotech/lista_funcionarios.html', {'funcionarios': funcionarios})
+    return render(request, 'lista_funcionarios.html', {'funcionarios': funcionarios})
 
 def detalhes_funcionario(request, pk):
     funcionario = get_object_or_404(Funcionario, pk=pk)
-    return render(request, 'bibliotech/detalhes_funcionario.html', {'funcionario': funcionario})
+    return render(request, 'detalhes_funcionario.html', {'funcionario': funcionario})
 
 def novo_funcionario(request):
     if request.method == "POST":
@@ -201,7 +201,7 @@ def novo_funcionario(request):
             return redirect('detalhes_funcionario', pk=funcionario.pk)
     else:
         form = FuncionarioForm()
-    return render(request, 'bibliotech/editar_funcionario.html', {'form': form})
+    return render(request, 'editar_funcionario.html', {'form': form})
 
 def editar_funcionario(request, pk):
     funcionario = get_object_or_404(Funcionario, pk=pk)
@@ -212,7 +212,7 @@ def editar_funcionario(request, pk):
             return redirect('detalhes_funcionario', pk=funcionario.pk)
     else:
         form = FuncionarioForm(instance=funcionario)
-    return render(request, 'bibliotech/editar_funcionario.html', {'form': form})
+    return render(request, 'editar_funcionario.html', {'form': form})
 
 def deletar_funcionario(request, pk):
     funcionario = get_object_or_404(Funcionario, pk=pk)
@@ -223,11 +223,11 @@ def deletar_funcionario(request, pk):
 # Views para o modelo Usuario
 def lista_usuarios(request):
     usuarios = Usuario.objects.all()
-    return render(request, 'bibliotech/lista_usuarios.html', {'usuarios': usuarios})
+    return render(request, 'lista_usuarios.html', {'usuarios': usuarios})
 
 def detalhes_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
-    return render(request, 'bibliotech/detalhes_usuario.html', {'usuario': usuario})
+    return render(request, 'detalhes_usuario.html', {'usuario': usuario})
 
 def novo_usuario(request):
     if request.method == "POST":
@@ -237,7 +237,7 @@ def novo_usuario(request):
             return redirect('detalhes_usuario', pk=usuario.pk)
     else:
         form = UsuarioForm()
-    return render(request, 'bibliotech/editar_usuario.html', {'form': form})
+    return render(request, 'editar_usuario.html', {'form': form})
 
 def editar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
@@ -248,7 +248,7 @@ def editar_usuario(request, pk):
             return redirect('detalhes_usuario', pk=usuario.pk)
     else:
         form = UsuarioForm(instance=usuario)
-    return render(request, 'bibliotech/editar_usuario.html', {'form': form})
+    return render(request, 'editar_usuario.html', {'form': form})
 
 def deletar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
@@ -259,11 +259,11 @@ def deletar_usuario(request, pk):
 # Views para o modelo Emprestimo
 def lista_emprestimos(request):
     emprestimos = Emprestimo.objects.all()
-    return render(request, 'bibliotech/lista_emprestimos.html', {'emprestimos': emprestimos})
+    return render(request, 'lista_emprestimos.html', {'emprestimos': emprestimos})
 
 def detalhes_emprestimo(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
-    return render(request, 'bibliotech/detalhes_emprestimo.html', {'emprestimo': emprestimo})
+    return render(request, 'detalhes_emprestimo.html', {'emprestimo': emprestimo})
 
 def novo_emprestimo(request):
     if request.method == "POST":
@@ -273,7 +273,7 @@ def novo_emprestimo(request):
             return redirect('detalhes_emprestimo', pk=emprestimo.pk)
     else:
         form = EmprestimoForm()
-    return render(request, 'bibliotech/editar_emprestimo.html', {'form': form})
+    return render(request, 'editar_emprestimo.html', {'form': form})
 
 def editar_emprestimo(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
@@ -284,7 +284,7 @@ def editar_emprestimo(request, pk):
             return redirect('detalhes_emprestimo', pk=emprestimo.pk)
     else:
         form = EmprestimoForm(instance=emprestimo)
-    return render(request, 'bibliotech/editar_emprestimo.html', {'form': form})
+    return render(request, 'editar_emprestimo.html', {'form': form})
 
 def deletar_emprestimo(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
@@ -295,11 +295,11 @@ def deletar_emprestimo(request, pk):
 # Views para o modelo Multa
 def lista_multas(request):
     multas = Multa.objects.all()
-    return render(request, 'bibliotech/lista_multas.html', {'multas': multas})
+    return render(request, 'lista_multas.html', {'multas': multas})
 
 def detalhes_multa(request, pk):
     multa = get_object_or_404(Multa, pk=pk)
-    return render(request, 'bibliotech/detalhes_multa.html', {'multa': multa})
+    return render(request, 'detalhes_multa.html', {'multa': multa})
 
 def nova_multa(request):
     if request.method == "POST":
@@ -309,7 +309,7 @@ def nova_multa(request):
             return redirect('detalhes_multa', pk=multa.pk)
     else:
         form = MultaForm()
-    return render(request, 'bibliotech/editar_multa.html', {'form': form})
+    return render(request, 'editar_multa.html', {'form': form})
 
 def editar_multa(request, pk):
     multa = get_object_or_404(Multa, pk=pk)
@@ -320,7 +320,7 @@ def editar_multa(request, pk):
             return redirect('detalhes_multa', pk=multa.pk)
     else:
         form = MultaForm(instance=multa)
-    return render(request, 'bibliotech/editar_multa.html', {'form': form})
+    return render(request, 'editar_multa.html', {'form': form})
 
 def deletar_multa(request, pk):
     multa = get_object_or_404(Multa, pk=pk)
@@ -331,11 +331,11 @@ def deletar_multa(request, pk):
 # Views para o modelo Comentario
 def lista_comentarios(request):
     comentarios = Comentario.objects.all()
-    return render(request, 'bibliotech/lista_comentarios.html', {'comentarios': comentarios})
+    return render(request, 'lista_comentarios.html', {'comentarios': comentarios})
 
 def detalhes_comentario(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
-    return render(request, 'bibliotech/detalhes_comentario.html', {'comentario': comentario})
+    return render(request, 'detalhes_comentario.html', {'comentario': comentario})
 
 def novo_comentario(request):
     if request.method == "POST":
@@ -345,7 +345,7 @@ def novo_comentario(request):
             return redirect('detalhes_comentario', pk=comentario.pk)
     else:
         form = ComentarioForm()
-    return render(request, 'bibliotech/editar_comentario.html', {'form': form})
+    return render(request, 'editar_comentario.html', {'form': form})
 
 def editar_comentario(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
@@ -356,7 +356,7 @@ def editar_comentario(request, pk):
             return redirect('detalhes_comentario', pk=comentario.pk)
     else:
         form = ComentarioForm(instance=comentario)
-    return render(request, 'bibliotech/editar_comentario.html', {'form': form})
+    return render(request, 'editar_comentario.html', {'form': form})
 
 def deletar_comentario(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
@@ -367,11 +367,11 @@ def deletar_comentario(request, pk):
 # Views para o modelo Avaliacao
 def lista_avaliacoes(request):
     avaliacoes = Avaliacao.objects.all()
-    return render(request, 'bibliotech/lista_avaliacoes.html', {'avaliacoes': avaliacoes})
+    return render(request, 'lista_avaliacoes.html', {'avaliacoes': avaliacoes})
 
 def detalhes_avaliacao(request, pk):
     avaliacao = get_object_or_404(Avaliacao, pk=pk)
-    return render(request, 'bibliotech/detalhes_avaliacao.html', {'avaliacao': avaliacao})
+    return render(request, 'detalhes_avaliacao.html', {'avaliacao': avaliacao})
 
 def nova_avaliacao(request):
     if request.method == "POST":
@@ -381,7 +381,7 @@ def nova_avaliacao(request):
             return redirect('detalhes_avaliacao', pk=avaliacao.pk)
     else:
         form = AvaliacaoForm()
-    return render(request, 'bibliotech/editar_avaliacao.html', {'form': form})
+    return render(request, 'editar_avaliacao.html', {'form': form})
 
 def editar_avaliacao(request, pk):
     avaliacao = get_object_or_404(Avaliacao, pk=pk)
@@ -392,7 +392,7 @@ def editar_avaliacao(request, pk):
             return redirect('detalhes_avaliacao', pk=avaliacao.pk)
     else:
         form = AvaliacaoForm(instance=avaliacao)
-    return render(request, 'bibliotech/editar_avaliacao.html', {'form': form})
+    return render(request, 'editar_avaliacao.html', {'form': form})
 
 def deletar_avaliacao(request, pk):
     avaliacao = get_object_or_404(Avaliacao, pk=pk)
@@ -403,11 +403,11 @@ def deletar_avaliacao(request, pk):
 # Views para o modelo FuncLivro
 def lista_func_livros(request):
     func_livros = FuncLivro.objects.all()
-    return render(request, 'bibliotech/lista_func_livros.html', {'func_livros': func_livros})
+    return render(request, 'lista_func_livros.html', {'func_livros': func_livros})
 
 def detalhes_func_livro(request, pk):
     func_livro = get_object_or_404(FuncLivro, pk=pk)
-    return render(request, 'bibliotech/detalhes_func_livro.html', {'func_livro': func_livro})
+    return render(request, 'detalhes_func_livro.html', {'func_livro': func_livro})
 
 def novo_func_livro(request):
     if request.method == "POST":
@@ -417,7 +417,7 @@ def novo_func_livro(request):
             return redirect('detalhes_func_livro', pk=func_livro.pk)
     else:
         form = FuncLivroForm()
-    return render(request, 'bibliotech/editar_func_livro.html', {'form': form})
+    return render(request, 'editar_func_livro.html', {'form': form})
 
 def editar_func_livro(request, pk):
     func_livro = get_object_or_404(FuncLivro, pk=pk)
@@ -428,7 +428,7 @@ def editar_func_livro(request, pk):
             return redirect('detalhes_func_livro', pk=func_livro.pk)
     else:
         form = FuncLivroForm(instance=func_livro)
-    return render(request, 'bibliotech/editar_func_livro.html', {'form': form})
+    return render(request, 'editar_func_livro.html', {'form': form})
 
 def deletar_func_livro(request, pk):
     func_livro = get_object_or_404(FuncLivro, pk=pk)
@@ -439,11 +439,11 @@ def deletar_func_livro(request, pk):
 # Views para o modelo Reserva
 def lista_reservas(request):
     reservas = Reserva.objects.all()
-    return render(request, 'bibliotech/lista_reservas.html', {'reservas': reservas})
+    return render(request, 'lista_reservas.html', {'reservas': reservas})
 
 def detalhes_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
-    return render(request, 'bibliotech/detalhes_reserva.html', {'reserva': reserva})
+    return render(request, 'detalhes_reserva.html', {'reserva': reserva})
 
 def nova_reserva(request):
     if request.method == "POST":
@@ -453,7 +453,7 @@ def nova_reserva(request):
             return redirect('detalhes_reserva', pk=reserva.pk)
     else:
         form = ReservaForm()
-    return render(request, 'bibliotech/editar_reserva.html', {'form': form})
+    return render(request, 'editar_reserva.html', {'form': form})
 
 def editar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
@@ -464,7 +464,7 @@ def editar_reserva(request, pk):
             return redirect('detalhes_reserva', pk=reserva.pk)
     else:
         form = ReservaForm(instance=reserva)
-    return render(request, 'bibliotech/editar_reserva.html', {'form': form})
+    return render(request, 'editar_reserva.html', {'form': form})
 
 def deletar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
@@ -475,11 +475,11 @@ def deletar_reserva(request, pk):
 # Views para o modelo Log
 def lista_logs(request):
     logs = Log.objects.all()
-    return render(request, 'bibliotech/lista_logs.html', {'logs': logs})
+    return render(request, 'lista_logs.html', {'logs': logs})
 
 def detalhes_log(request, pk):
     log = get_object_or_404(Log, pk=pk)
-    return render(request, 'bibliotech/detalhes_log.html', {'log': log})
+    return render(request, 'detalhes_log.html', {'log': log})
 
 def novo_log(request):
     if request.method == "POST":
@@ -489,7 +489,7 @@ def novo_log(request):
             return redirect('detalhes_log', pk=log.pk)
     else:
         form = LogForm()
-    return render(request, 'bibliotech/editar_log.html', {'form': form})
+    return render(request, 'editar_log.html', {'form': form})
 
 def editar_log(request, pk):
     log = get_object_or_404(Log, pk=pk)
@@ -500,7 +500,7 @@ def editar_log(request, pk):
             return redirect('detalhes_log', pk=log.pk)
     else:
         form = LogForm(instance=log)
-    return render(request, 'bibliotech/editar_log.html', {'form': form})
+    return render(request, 'editar_log.html', {'form': form})
 
 def deletar_log(request, pk):
     log = get_object_or_404(Log, pk=pk)
