@@ -36,3 +36,8 @@ def deletar_livro(request, pk):
     livro = get_object_or_404(Livro, pk=pk)
     livro.delete()
     return redirect('lista_livros')
+
+def livros_recentes(request):
+    livros = Livro.objects.all().order_by('-data_publicacao')  
+
+    return render(request, 'livros_recentes.html', {'livros': livros})
