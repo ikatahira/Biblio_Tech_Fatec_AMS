@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genero, Editora, Autor, Livro, Exemplar, Funcionario, Usuario, Emprestimo, Multa, Comentario, Avaliacao, FuncLivro, Reserva, Log
 from .forms import GeneroForm, EditoraForm, AutorForm, LivroForm, ExemplarForm, FuncionarioForm, UsuarioForm, EmprestimoForm, MultaForm, ComentarioForm, AvaliacaoForm, FuncLivroForm, ReservaForm, LogForm
+from datetime import datetime
+from django.utils import timezone
 
 def home(request):
     return render(request, 'home.html')
@@ -240,14 +242,16 @@ def novo_usuario(request):
     return render(request, 'editar_usuario.html', {'form': form})
 
 def editar_usuario(request, pk):
-    usuario = get_object_or_404(Usuario, pk=pk)
+    usuario = Usuario.objects.get(pk=pk)
+    
     if request.method == "POST":
         form = UsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
-            usuario = form.save()
+            form.save()
             return redirect('detalhes_usuario', pk=usuario.pk)
     else:
         form = UsuarioForm(instance=usuario)
+    
     return render(request, 'editar_usuario.html', {'form': form})
 
 def deletar_usuario(request, pk):
@@ -341,6 +345,11 @@ def novo_comentario(request):
     if request.method == "POST":
         form = ComentarioForm(request.POST)
         if form.is_valid():
+            # Obtém a data e hora atual em horário de Brasília
+            data_hora_atual_brasilia = timezone.localtime(timezone.now(), timezone=timezone.get_current_timezone())
+            # Define a data do comentário como a data e hora atual
+            form.instance.data_comentario = data_hora_atual_brasilia
+            # Salva o comentário
             comentario = form.save()
             return redirect('detalhes_comentario', pk=comentario.pk)
     else:

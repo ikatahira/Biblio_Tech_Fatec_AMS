@@ -20,7 +20,7 @@ class Autor(models.Model):
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=200)
-    ano_publicacao = models.IntegerField()
+    ano_publicacao = models.CharField(max_length=200)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
@@ -45,12 +45,13 @@ class Funcionario(models.Model):
     def __str__(self):
         return f"{self.nome} {self.sobrenome}"
 
+
 class Usuario(models.Model):
-    nome = models.CharField(max_length=100)
-    sobrenome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=25)
+    sobrenome = models.CharField(max_length=70)
     data_nascimento = models.DateField()
-    endereco = models.TextField()
-    email = models.EmailField()
+    endereco = models.TextField(max_length=250)
+    email = models.EmailField(max_length=254)
     telefone = models.CharField(max_length=20)
 
     def __str__(self):
