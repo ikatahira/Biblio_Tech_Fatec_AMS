@@ -1,148 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca - Página Inicial</title>
-    <!-- Adicionando Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .navbar {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            background-color: #343a40 !important;
-        }
-        .navbar-dark .navbar-nav .nav-link {
-            color: #ffffff !important;
-        }
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: #dcdcdc !important;
-        }
-        .container {
-            padding: 60px 15px;
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 30px;
-            font-size: 3rem;
-            color: #343a40;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #6c757d;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Biblioteca</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_generos' %}">Gêneros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_editoras' %}">Editoras</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_autores' %}">Autores</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_livros' %}">Livros</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_logs' %}">Logs</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_emprestimos' %}">Empréstimos</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_exemplares' %}">Exemplares</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_multas' %}">Multas</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_funcionarios' %}">Funcionarios</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_reservas' %}">Reservas</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_avaliacoes' %}">Avaliações</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_comentarios' %}">Comentários</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_usuarios' %}">Usuários</a>
-                    </li>
-                    <!-- Adicione mais links para outras funcionalidades aqui -->
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main role="main" class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">Bem-vindo à Biblioteca</h1>
-            <p class="lead">Encontre os melhores livros em nossa coleção vasta e diversificada.</p>
-            <hr class="my-4">
-            <p>Explore nossa biblioteca e descubra novos mundos!</p>
-        </div>
+{% extends 'Header.html' %}
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Bem-vindo à Biblioteca</h1>
+    <p class="lead">
+      Encontre os melhores livros em nossa coleção vasta e diversificada.
+    </p>
+    <hr class="my-4" />
+    <p>Explore nossa biblioteca e descubra novos mundos!</p>
+  </div>
 
-        <div class="container">
-            <h2>Livros Disponíveis</h2>
-            <ul>
-                {% for livro in livros %}
-                    <li>{{ livro.titulo }}</li>
-                {% endfor %}
-            </ul>
+  <div class="container">
+    <h2>Livros Disponíveis</h2>
+    <ul>
+      {% for livro in livros %}
+      <li>{{ livro.titulo }}</li>
+      {% endfor %}
+    </ul>
 
-            <h2>Autores</h2>
-            <ul>
-                {% for autor in autores %}
-                    <li>{{ autor.nome }}</li>
-                {% endfor %}
-            </ul>
+    <h2>Autores</h2>
+    <ul>
+      {% for autor in autores %}
+      <li>{{ autor.nome }}</li>
+      {% endfor %}
+    </ul>
 
-            <h2>Gêneros</h2>
-            <ul>
-                {% for genero in generos %}
-                    <li>{{ genero.nome }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </main>
-
-    <!-- Adicionando Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <h2>Gêneros</h2>
+    <ul>
+      {% for genero in generos %}
+      <li>{{ genero.nome }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
