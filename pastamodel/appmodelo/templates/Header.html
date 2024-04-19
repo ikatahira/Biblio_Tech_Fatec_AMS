@@ -18,7 +18,13 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">Biblioteca</a>
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img
+            src="{% static 'imgs/icon-logo.png' %}"
+            alt="logo"
+            width="48px"
+          /><span class="ml-3">Bibliotech</span></a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -32,71 +38,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_generos' %}">Gêneros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_editoras' %}">Editoras</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_autores' %}">Autores</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_livros' %}">Livros</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_logs' %}">Logs</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_emprestimos' %}"
-                >Empréstimos</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_exemplares' %}"
-                >Exemplares</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_multas' %}">Multas</a>
-            </li>
-
             <li class="nav-item">
               <a class="nav-link" href="{% url 'lista_funcionarios' %}"
                 >Funcionarios</a
               >
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="{% url 'lista_reservas' %}">Reservas</a>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_avaliacoes' %}"
-                >Avaliações</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'lista_comentarios' %}"
-                >Comentários</a
-              >
-            </li>
-
             <li class="nav-item">
               <a class="nav-link" href="{% url 'lista_usuarios' %}">Usuários</a>
             </li>
-            <!-- Adicione mais links para outras funcionalidades aqui -->
           </ul>
         </div>
       </div>

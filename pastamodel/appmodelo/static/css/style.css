@@ -7,26 +7,14 @@ body {
   font-weight: bold;
 }
 .navbar {
-  padding-top: 20px;
-  padding-bottom: 20px;
   background-color: #343a40 !important;
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: #ffffff !important;
+
+.nav-item a {
+  color: #fff !important;
+  transition: 0.5s;
 }
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #dcdcdc !important;
-}
-.container {
-  padding: 60px 15px;
-  text-align: center;
-}
-h1 {
-  margin-bottom: 30px;
-  font-size: 3rem;
-  color: #343a40;
-}
-p {
-  font-size: 1.2rem;
-  color: #6c757d;
+
+.nav-item a:hover {
+  color: #b6b6b6 !important;
 }
