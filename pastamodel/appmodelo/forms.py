@@ -20,7 +20,7 @@ class LivroForm(forms.ModelForm):
     imagem = forms.ImageField(required=False) 
     class Meta:
         model = Livro
-        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor', 'imagem']
+        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor','descricao', 'imagem']
 
 
 

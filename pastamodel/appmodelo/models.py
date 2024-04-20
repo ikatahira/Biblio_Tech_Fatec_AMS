@@ -25,6 +25,7 @@ class Livro(models.Model):
     genero = models.CharField(max_length=50)
     editora = models.CharField(max_length=100)
     autor = models.CharField(max_length=100)
+    descricao = models.TextField(max_length=250)
     imagem = models.ImageField(upload_to='imgs/', null=True, blank=True)
 
 
