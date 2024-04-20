@@ -17,9 +17,12 @@ class AutorForm(forms.ModelForm):
         fields = ['nome']
 
 class LivroForm(forms.ModelForm):
+    imagem = forms.ImageField(required=False) 
     class Meta:
         model = Livro
-        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor']
+        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor', 'imagem']
+
+
 
 class ExemplarForm(forms.ModelForm):
     class Meta:

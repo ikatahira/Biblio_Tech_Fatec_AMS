@@ -18,15 +18,15 @@ class Autor(models.Model):
     def __str__(self):
         return self.nome
 
-class Livro(models.Model):
-    titulo = models.CharField(max_length=200)
-    ano_publicacao = models.CharField(max_length=200)
-    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
-    editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
-    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.titulo
+class Livro(models.Model):
+    titulo = models.CharField(max_length=100)
+    ano_publicacao = models.IntegerField()
+    genero = models.CharField(max_length=50)
+    editora = models.CharField(max_length=100)
+    autor = models.CharField(max_length=100)
+    imagem = models.ImageField(upload_to='imgs/', null=True, blank=True)
+
 
 class Exemplar(models.Model):
     livro = models.ForeignKey(Livro, on_delete=models.CASCADE)

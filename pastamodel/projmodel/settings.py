@@ -100,7 +100,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configuração do diretório raiz onde os arquivos de mídia serão armazenados
+MEDIA_ROOT = os.path.join(BASE_DIR, 'appmodelo', 'static', 'imgs')
 
+# URL base para servir arquivos de mídia
+MEDIA_URL = '/media/'
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 

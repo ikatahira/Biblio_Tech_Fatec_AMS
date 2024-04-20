@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from appmodelo.views.HomeViews import home
 from appmodelo.views.GeneroViews import lista_generos, detalhes_genero, novo_genero, editar_genero, deletar_genero
@@ -120,3 +122,5 @@ urlpatterns = [
 
     # As URLs para os outros modelos continuam aqui...
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
