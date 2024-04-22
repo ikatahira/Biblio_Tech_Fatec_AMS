@@ -24,7 +24,7 @@
       {% endif %}
     </div>
     <div class="card-buttons p-2">
-      <a href="{% url 'lista_livros' %}"
+      <a href="{% url 'detalhes_livro' livro.id %}"
         ><button class="btn btn-card details">Detalhes</button></a
       >
       <a href="{% url 'novo_livro' %}"
