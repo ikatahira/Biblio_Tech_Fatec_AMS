@@ -1,8 +1,10 @@
 from django.urls import path
 from appmodelo import views
+from appmodelo.views import relatorio_livros_pdf
 
    
 urlpatterns = [
+    path('relatorio-livros/', relatorio_livros_pdf, name='relatorio_livros'),
     path('', views.home, name='home'),
     # URLs para o modelo Genero
     path('generos/', views.lista_generos, name='lista_generos'),

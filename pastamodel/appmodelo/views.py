@@ -1,6 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genero, Editora, Autor, Livro, Exemplar, Funcionario, Usuario, Emprestimo, Multa, Comentario, Avaliacao, FuncLivro, Reserva, Log
 from .forms import GeneroForm, EditoraForm, AutorForm, LivroForm, ExemplarForm, FuncionarioForm, UsuarioForm, EmprestimoForm, MultaForm, ComentarioForm, AvaliacaoForm, FuncLivroForm, ReservaForm, LogForm
+from django.http import HttpResponse
+from reportlab.pdfgen import canvas
+
+def relatorio_livros_pdf(request):
+    # Configura a resposta HTTP como um PDF
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="relatorio_livros.pdf"'
+
+    # Cria um objeto PDF
+    p = canvas.Canvas(response)
+
+    # Adiciona o conteúdo do relatório
+    livros = Livro.objects.all()
+    y = 800
+    for livro in livros:
+        p.drawString(100, y, f"Título: {livro.titulo}")
+        p.drawString(100, y - 20, f"Autor: {livro.autor.nome}")
+        p.drawString(100, y - 40, f"Gênero: {livro.genero.nome}")
+        y -= 60
+
+    # Fecha o objeto PDF
+    p.showPage()
+    p.save()
+
+    return response
+
+
+
 
 def home(request):
     return render(request, 'home.html')
