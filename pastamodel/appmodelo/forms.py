@@ -17,9 +17,12 @@ class AutorForm(forms.ModelForm):
         fields = ['nome']
 
 class LivroForm(forms.ModelForm):
+    imagem = forms.ImageField(required=False) 
     class Meta:
         model = Livro
-        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor']
+        fields = ['titulo', 'ano_publicacao', 'genero', 'editora', 'autor','descricao', 'imagem']
+
+
 
 class ExemplarForm(forms.ModelForm):
     class Meta:
@@ -35,6 +38,9 @@ class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['nome', 'sobrenome', 'data_nascimento', 'endereco', 'email', 'telefone']
+        widgets = {
+            'data_nascimento': forms.DateInput(format='%d/%m/%Y'),
+        }
 
 class EmprestimoForm(forms.ModelForm):
     class Meta:
@@ -49,7 +55,7 @@ class MultaForm(forms.ModelForm):
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['livro', 'usuario', 'comentario', 'classificacao', 'data_comentario']
+        fields = ['livro', 'usuario', 'comentario', 'classificacao']
 
 class AvaliacaoForm(forms.ModelForm):
     class Meta:

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xp$ju_t@cs0sd!4oo39x1ie4v4e%^ww_noil82rkp7mo^!wb5^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-ikatahira-djangobd3-68wqoch8yse.ws-us110.gitpod.io','.gitpod.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
                 
 
 # Application definition
@@ -100,11 +100,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configuração do diretório raiz onde os arquivos de mídia serão armazenados
+MEDIA_ROOT = os.path.join(BASE_DIR, 'appmodelo', 'static', 'imgs')
 
+# URL base para servir arquivos de mídia
+MEDIA_URL = '/media/'
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

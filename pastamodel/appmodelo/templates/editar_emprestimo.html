@@ -1,9 +1,7 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'Header.html' %} {% block content %}
 <h2>Editar Empréstimo</h2>
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Salvar</button>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 {% endblock %}

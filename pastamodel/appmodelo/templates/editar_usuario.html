@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'Header.html' %} {% block content %}
 <h2>Editar Usuário</h2>
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Salvar</button>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
-{% endblock %}
+{% endblock %} {% if form.errors %}
+<div class="alert alert-danger">
+  <strong>Ocorreu um erro:</strong>
+  <ul>
+    {% for field, errors in form.errors.items %} {% for error in errors %}
+    <li>{{ field|title }}: {{ error }}</li>
+    {% endfor %} {% endfor %}
+  </ul>
+</div>
+{% endif %}
